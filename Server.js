@@ -15,6 +15,6 @@ router.get("/",function(req,res){
 
 app.use("/",router);
 
-app.list(port, function(){
+app.listen(port, function(){
 	console.log('App running' + port);
 });
