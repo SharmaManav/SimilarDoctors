@@ -13,7 +13,3 @@ router.get("/",function(req,res){
 });
 
 app.use("/",router);
-
-app.listen(8000,function(){
-  console.log("Live on port 8000");
-});
