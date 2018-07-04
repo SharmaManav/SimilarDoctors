@@ -1,0 +1,16 @@
+{
+  "name": "practicefusion",
+  "version": "1.0.0",
+  "description": "Similar Doctors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Server.js"
+  },
+  "dependencies": {
+    "datatables.net": "^1.10.19",
+    "express": "latest",
+    "jquery": "^3.3.1",
+    "mysql": "^2.15.0"
+  }
+}

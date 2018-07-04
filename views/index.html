@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Similar Doctors</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+<!--
+This script creates the formatting for the table and all the hard coded info
+-->
+<script type="text/javascript">
+function format ( d ){
+  return '<table cellpadding="5" cellspacing="0" border="1" style="padding-left:50px;">'+
+  '<thead>'+
+          '<tr>'+ '<td>Phone Number: 510-475-4895</td>' + '</tr>'+
+          '<th>Similar Doctor Name</th>'+
+          '<th>Similar Doctor Speciality</th>'+
+          '<th>Similar Doctor Location</th>'+
+          '<tbody>'+
+          '<tr>'+
+          '<td>Name</td>'+
+          '<td>Speciality</td>'+
+          '<td>Location</td>'+'</tr>'+
+          '</tbody>'+
+      '</th>'+
+  '</table>';
+}
+</script>
+
+<!--
+This script controls all the onclick handling and setting up of the datatable. If a child row isn't already open then it open and if it's already open, then close it.
+-->
+<script type="text/javascript">
+$(document).ready( function () {
+    var table = $('#myTable').DataTable();
+
+    $('#myTable tbody').on('click', 'tr', function () {
+      var tr = $(this).closest('tr');
+      var row = table.row( tr );
+
+      if (row.child.isShown()) {
+        row.child.hide();
+        tr.removeClass('shown');
+      }
+      else {
+        row.child(format(row.data()) ).show();
+        tr.addClass('shown');
+      }
+    });
+} );
+</script>
+
+<!--
+All of the code for the nav bar and the data for the datatable
+-->
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Practice Fusion</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+<br/>
+<div style="padding:4px">
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Speciality</th>
+            <th>Location</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bob Barker</td>
+            <td>Pediatrics</td>
+            <td>San Jose</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jayme Vo</td>
+            <td>Orthopedics</td>
+            <td>San Francisco</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Sammie Sang</td>
+            <td>Pediatrics</td>
+            <td>San Francisco</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Don Wong</td>
+            <td>Psychiatrics</td>
+            <td>San Francisco</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>William Shatner</td>
+            <td>Orthopedics</td>
+            <td>San Jose</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Donald Trump</td>
+            <td>Orthopedics</td>
+            <td>San Jose</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Nelson Mandela</td>
+            <td>Dermatology</td>
+            <td>Santa Rosa</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Charles Darwin</td>
+            <td>Dermatology</td>
+            <td>Union City</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Elvis Preseley</td>
+            <td>Neurology</td>
+            <td>Santa Rosa</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Albert Einstein</td>
+            <td>Radiology</td>
+            <td>Oakland</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Paul Mccartney</td>
+            <td>Pathology</td>
+            <td>Saratoga</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Vincent Van Gogh</td>
+            <td>Radiology</td>
+            <td>Union City</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>Rosa Parks</td>
+            <td>Pathology</td>
+            <td>Saratoga</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Margaret Thatcher</td>
+            <td>Neurology</td>
+            <td>Oakland</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Thomas Edison</td>
+            <td>Dermatology</td>
+            <td>Saratoga</td>
+            <td>1</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
